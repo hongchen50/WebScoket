@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://localhost:3306/socket?useSSL=false
+    username: root
+    password: 123123
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis-plus:
+  global-config:
+    #开启逻辑删除
+    db-config:
+      logic-delete-field: 1
+      logic-not-delete-value: 0
+  #configuration:
+
+    #设置显示sql语句
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #设置包扫描
+  type-aliases-package: com.websocket.websocketdemo.bean
+  #设置mapper地址
+  mapper-locations:
+    - classpath:com/websocket/websocketdemo/mapper/xml/*.xml
+
+

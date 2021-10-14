@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.websocket.websocketdemo.mapper.UserMapper">
+
+    <select id="login" resultType="com.websocket.websocketdemo.bean.User">
+        select user_name,pwd
+        from socket.user
+        where user_name=#{user.userName} and pwd=#{user.pwd} and deleted=0;
+    </select>
+
+
+    <select id="selectFriends" resultType="string">
+        select f.friend_name
+        from user u inner join friend f
+        on u.user_name = f.user_name
+        where u.user_name=#{userName} and f.deleted=0;
+    </select>
+</mapper>
